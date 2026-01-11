@@ -33,6 +33,9 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Clover",
   description: "Instant text animations for React & Framer Motion.",
+  icons: {
+    icon: "/logo.png",
+  },
 };
 
 export default function RootLayout({
