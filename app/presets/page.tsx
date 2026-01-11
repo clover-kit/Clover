@@ -239,7 +239,7 @@ export default function PresetsPage() {
 function PresetCard({ title, description, fontClass, icon, preview }: any) {
     const [copied, setCopied] = useState(false);
 
-    const installCommand = `npx shadcn@latest add https://clover.dev/registry/${title.toLowerCase().replace(/\s+/g, "-")}.json`;
+    const installCommand = `npx shadcn@latest add https://clover-kit.vercel.app/registry/${title.toLowerCase().replace(/\s+/g, "-")}.json`;
 
     const handleCopy = () => {
         navigator.clipboard.writeText(installCommand);
