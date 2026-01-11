@@ -1,0 +1,13 @@
+{
+  "name": "modern-fade",
+  "type": "registry:component",
+  "files": [
+    {
+      "path": "components/clover/modern-fade.tsx",
+      "content": "'use client';\n\nimport { motion, useInView, useAnimation, Variant } from 'framer-motion';\nimport { useEffect, useRef } from 'react';\n\ntype AnimatedTextProps = {\n  text: string;\n  className?: string; // User can override font etc.\n  delay?: number; // Optional manual delay\n};\n\nexport const ModernFade = ({ text, className = '', delay = 0 }: AnimatedTextProps) => {\n  const controls = useAnimation();\n  const ref = useRef(null);\n  const isInView = useInView(ref, { once: true });\n\n  useEffect(() => {\n    if (isInView) {\n      setTimeout(() => {\n        controls.start('visible');\n      }, delay * 1000);\n    }\n  }, [isInView, controls, delay]);\n\n  return (\n    <motion.div\n      ref={ref}\n      initial=\"hidden\"\n      animate={controls}\n      variants={{\n        visible: { transition: { staggerChildren: 0.02 } },\n        hidden: {},\n      }}\n      className={className}\n    >\n      {text.split(/(\\s+)/).map((word, wIndex) => (\n        <span key={wIndex} className=\"inline-block\">\n          {word.split('').map((char, cIndex) => (\n            <motion.span\n              key={`${wIndex}-${cIndex}`}\n              variants={{\n                hidden: { opacity: 0, y: 20, x: 0, scale: 1, filter: 'blur(10px)' },\n                visible: { opacity: 1, y: 0, x: 0, scale: 1, filter: 'blur(0px)', transition: { duration: 0.5 } },\n              }}\n              className=\"inline-block\"\n            >\n              {char}\n            </motion.span>\n          ))}\n        </span>\n      ))}\n    </motion.div>\n  );\n};\n"
+    }
+  ],
+  "dependencies": [
+    "framer-motion"
+  ]
+}

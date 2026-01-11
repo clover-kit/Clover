@@ -26,13 +26,13 @@ export default function LandingPage() {
     <div className="min-h-screen bg-[#fbfbfb] dark:bg-zinc-950 font-sans selection:bg-zinc-900 selection:text-white dark:selection:bg-zinc-100 dark:selection:text-zinc-900 flex flex-col text-zinc-900 dark:text-zinc-50 transition-colors duration-300">
 
       {/* Top Announcement Bar */}
-      <div className="bg-white dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800 py-2 px-4 flex justify-center items-center text-sm font-medium relative z-20">
+      {/* <div className="bg-white dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800 py-2 px-4 flex justify-center items-center text-sm font-medium relative z-20">
         <div className="flex items-center gap-2 text-zinc-600 dark:text-zinc-400">
-          <span className="bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded px-1.5 py-0.5 text-xs font-mono text-zinc-900 dark:text-zinc-100">v2.0</span>
+          <span className="bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded px-1.5 py-0.5 text-xs font-mono text-zinc-900 dark:text-zinc-100"></span>
           <span>Now with multi-line stagger support</span>
           <a href="#" className="ml-2 text-zinc-900 dark:text-zinc-100 underline decoration-zinc-300 dark:decoration-zinc-600 underline-offset-2 hover:decoration-zinc-900 dark:hover:decoration-zinc-100 transition-all">Read Changelog</a>
         </div>
-      </div>
+      </div> */}
 
       {/* Navigation */}
       <nav className="border-b border-dashed border-zinc-300 dark:border-zinc-800 bg-[#fbfbfb]/80 dark:bg-zinc-950/80 backdrop-blur-md sticky top-0 z-50">
@@ -91,8 +91,8 @@ export default function LandingPage() {
           </p>
 
           <div className="mt-8 flex items-center justify-center gap-4">
-            <Link href="/playground" className="flex items-center gap-2 bg-zinc-900 dark:bg-zinc-100 hover:bg-zinc-800 dark:hover:bg-zinc-200 text-white dark:text-zinc-900 py-3 px-6 rounded-lg text-lg font-medium transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">
-              Open Playground <ArrowRight className="w-5 h-5" />
+            <Link href="/presets" className="flex items-center gap-2 bg-zinc-900 dark:bg-zinc-100 hover:bg-zinc-800 dark:hover:bg-zinc-200 text-white dark:text-zinc-900 py-3 px-6 rounded-lg text-lg font-medium transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">
+              Open Presets <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
         </div>
@@ -113,62 +113,126 @@ export default function LandingPage() {
           </DemoCard>
         </div>
 
+        {/* Community Callout */}
+        <section className="relative z-10 w-full max-w-6xl mt-20 mb-8">
+          <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left relative overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-zinc-50 dark:bg-zinc-800/50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 opacity-50 z-0"></div>
+
+            <div className="relative z-10 max-w-xl">
+              <h2 className="text-2xl md:text-3xl font-mono font-bold text-zinc-900 dark:text-zinc-50 mb-3 tracking-tight">
+                Give us a <span className="text-amber-500">Star</span> & Contribute.
+              </h2>
+              <p className="font-mono text-lg text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                Clover is proudly open-source. Help us grow by starring the repo or submitting your own text animation presets.
+              </p>
+            </div>
+
+            <div className="relative z-10 flex flex-col sm:flex-row gap-4 w-full md:w-auto">
+              <a
+                href="https://github.com/clover-kit/Clover"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 px-6 py-3 rounded-lg font-medium hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors shadow-sm"
+              >
+                <Github className="w-5 h-5" />
+                <span>Star Repo</span>
+              </a>
+              <a
+                href="https://github.com/clover-kit/Clover"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 border border-zinc-200 dark:border-zinc-700 px-6 py-3 rounded-lg font-medium hover:bg-zinc-50 dark:hover:bg-zinc-700 transition-colors"
+              >
+                <Zap className="w-5 h-5 text-amber-500" />
+                <span>Contribute</span>
+              </a>
+            </div>
+          </div>
+        </section>
+
       </main>
 
       {/* Features Section */}
-      <section className="border-t border-zinc-200 dark:border-zinc-800 py-24 bg-white dark:bg-zinc-950">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
-            <FeatureCard icon={<Zap className="w-6 h-6 text-zinc-900 dark:text-zinc-100" />} title="Zero Config" description="Copy paste production ready code. No need to install complex libraries or set up context providers." />
-            <FeatureCard icon={<Sliders className="w-6 h-6 text-zinc-900 dark:text-zinc-100" />} title="Real-Time Control" description="Fine-tune delay, stagger duration, and easing curves with instant visual feedback in the playground." />
-            <FeatureCard icon={<Keyboard className="w-6 h-6 text-zinc-900 dark:text-zinc-100" />} title="Keyboard First" description={<>Switch presets with <code className="bg-zinc-100 dark:bg-zinc-800 px-1.5 py-0.5 rounded text-sm border border-zinc-200 dark:border-zinc-700">Cmd+K</code>. Designed for power users who want to stay in the flow.</>} />
-            <FeatureCard icon={<Share2 className="w-6 h-6 text-zinc-900 dark:text-zinc-100" />} title="Shareable URLs" description="Your configuration is stored in the URL. Send a link to a teammate and they see exactly what you designed." />
-            <FeatureCard icon={<Moon className="w-6 h-6 text-zinc-900 dark:text-zinc-100" />} title="Dark Mode" description="Built-in dark mode support that respects system preferences and transitions smoothly." />
-            <FeatureCard icon={<Github className="w-6 h-6 text-zinc-900 dark:text-zinc-100" />} title="Open Source" description="MIT Licensed. Contribute new presets or customize the core logic to fit your specific design system." />
+      <section className="border-t border-dashed border-zinc-300 dark:border-zinc-800 bg-white dark:bg-zinc-950">
+        <div className="max-w-7xl mx-auto border-x border-dashed border-zinc-300 dark:border-zinc-800">
+          <div className="grid grid-cols-1 md:grid-cols-3">
+            <div className="p-8 border-b md:border-b-0 md:border-r border-dashed border-zinc-300 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-900/50 transition-colors">
+              <Zap className="w-5 h-5 mb-6 text-zinc-900 dark:text-zinc-100" />
+              <h3 className="text-sm font-mono font-semibold uppercase tracking-wider mb-2 text-zinc-900 dark:text-zinc-100">Zero Config</h3>
+              <p className="text-zinc-500 dark:text-zinc-400 font-mono text-sm leading-relaxed">Copy paste production ready code. No complex libraries or context providers needed.</p>
+            </div>
+            <div className="p-8 border-b md:border-b-0 md:border-r border-dashed border-zinc-300 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-900/50 transition-colors">
+              <Sliders className="w-5 h-5 mb-6 text-zinc-900 dark:text-zinc-100" />
+              <h3 className="text-sm font-mono font-semibold uppercase tracking-wider mb-2 text-zinc-900 dark:text-zinc-100">Real-Time Control</h3>
+              <p className="text-zinc-500 dark:text-zinc-400 font-mono text-sm leading-relaxed">Fine-tune delay, stagger duration, and easing curves with instant visual feedback.</p>
+            </div>
+            <div className="p-8 border-dashed border-zinc-300 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-900/50 transition-colors">
+              <Keyboard className="w-5 h-5 mb-6 text-zinc-900 dark:text-zinc-100" />
+              <h3 className="text-sm font-mono font-semibold uppercase tracking-wider mb-2 text-zinc-900 dark:text-zinc-100">Keyboard First</h3>
+              <p className="text-zinc-500 dark:text-zinc-400 font-mono text-sm leading-relaxed">Designed for flow. Switch presets with <code className="bg-zinc-100 dark:bg-zinc-800 px-1 py-0.5 rounded text-xs border border-zinc-200 dark:border-zinc-700">Cmd+K</code>.</p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-zinc-50 dark:bg-zinc-900 border-t border-dashed border-zinc-300 dark:border-zinc-800 py-12">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex items-center gap-2">
-            <Image
-              src="/logo-text.png"
-              alt="Clover"
-              width={140}
-              height={40}
-              className="object-contain h-28 w-auto dark:invert"
-            />
+      <footer className="bg-zinc-50 dark:bg-zinc-950 border-t border-dashed border-zinc-300 dark:border-zinc-800 pt-10 pb-8 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col md:flex-row justify-between gap-8 mb-12">
+            <div className="flex gap-12">
+              <div>
+                <h4 className="font-mono text-xs font-semibold uppercase text-zinc-400 mb-4 tracking-widest">Platform</h4>
+                <ul className="space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
+                  <li><Link href="/" className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Home</Link></li>
+                  <li><Link href="/presets" className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Presets</Link></li>
+                  <li><Link href="/playground" className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Playground</Link></li>
+                  <li><Link href="/docs" className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Documentation</Link></li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-mono text-xs font-semibold uppercase text-zinc-400 mb-4 tracking-widest">Resources</h4>
+                <ul className="space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
+                  <li><a href="https://github.com/clover-kit/Clover" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">GitHub</a></li>
+                  <li><a href="https://github.com/clover-kit/Clover/releases" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Changelog</a></li>
+                  <li><a href="https://github.com/clover-kit/Clover/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">License</a></li>
+                  <li><a href="https://github.com/clover-kit/Clover/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Contributing</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="flex flex-col justify-end">
+              <Image
+                src="/logo-text.png"
+                alt="Clover"
+                width={100}
+                height={30}
+                className="object-contain h-8 w-auto opacity-50 dark:invert mb-2"
+              />
+            </div>
           </div>
 
-          <div className="flex gap-8 text-sm font-medium text-zinc-500 dark:text-zinc-400">
-            <a href="#" className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">GitHub</a>
-            <a href="#" className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Twitter</a>
-          </div>
+          <div className="flex flex-col md:flex-row justify-between items-center w-full pt-8 border-t border-dashed border-zinc-300 dark:border-zinc-800 text-xs text-zinc-500 font-mono">
+            <div className="flex items-center gap-1">
+              <span>Developed by</span>
+              <a href="https://github.com/AVBharath10" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Bharath</a>
+              <span className="mx-1">.</span>
+              <span>The source code is available on</span>
+              <a href="https://github.com/clover-kit/Clover" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">GitHub</a>
+            </div>
 
-          <p className="text-sm text-zinc-400 dark:text-zinc-600">
-            &copy; 2026 Clover. All rights reserved.
-          </p>
+            <div className="flex items-center gap-4 mt-4 md:mt-0">
+              <a href="https://github.com/clover-kit/Clover" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">
+                <Github className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
         </div>
       </footer>
     </div>
   );
 }
 
-function FeatureCard({ icon, title, description }: { icon: React.ReactNode, title: string, description: React.ReactNode }) {
-  return (
-    <div className="group">
-      <div className="mb-6 inline-flex items-center justify-center w-12 h-12 rounded-lg bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 group-hover:border-zinc-900 dark:group-hover:border-zinc-100 transition-colors">
-        {icon}
-      </div>
-      <h3 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mb-3 tracking-tight">{title}</h3>
-      <p className="text-lg text-zinc-500 dark:text-zinc-400 leading-relaxed">
-        {description}
-      </p>
-    </div>
-  );
-}
+
 
 function DemoCard({ title, children, delay }: { title: string, children: React.ReactNode, delay: number }) {
   return (
