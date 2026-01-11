@@ -282,7 +282,7 @@ export const AnimatedText = ({ text }) => {
                                 <div
                                     className="absolute inset-y-0 right-0 flex items-center pr-1 opacity-0 group-hover/code:opacity-100 transition-opacity"
                                     onClick={() => {
-                                        navigator.clipboard.writeText(`npx shadcn@latest add https://clover.dev/registry/${presetName.toLowerCase().replace(/\s+/g, "-")}.json`);
+                                        navigator.clipboard.writeText(`npx shadcn@latest add https://clover-kit.vercel.app/registry/${presetName.toLowerCase().replace(/\s+/g, "-")}.json`);
                                         setTerminalCopied(true);
                                         setTimeout(() => setTerminalCopied(false), 2000);
                                     }}
@@ -292,7 +292,7 @@ export const AnimatedText = ({ text }) => {
                                     </div>
                                 </div>
                                 <code className="text-[10px] text-zinc-600 dark:text-zinc-400 bg-zinc-100 dark:bg-zinc-800/50 px-2 py-2 rounded block truncate font-mono select-all hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors cursor-text">
-                                    npx shadcn@latest add https://clover.dev/registry/{presetName.toLowerCase().replace(/\s+/g, "-")}.json
+                                    npx shadcn@latest add https://clover-kit.vercel.app/registry/{presetName.toLowerCase().replace(/\s+/g, "-")}.json
                                 </code>
                             </div>
                         </div>
