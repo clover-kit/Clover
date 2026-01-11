@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useTheme } from "next-themes";
-import { Star, Moon, Sun, ChevronRight, Terminal, Copy, Check, Info } from "lucide-react";
+import { Star, Moon, Sun, ChevronRight, Terminal, Copy, Check, Info, Github } from "lucide-react";
 import { useState } from "react";
 
 export default function DocsPage() {
@@ -34,7 +34,7 @@ export default function DocsPage() {
                     <div className="flex items-center gap-4">
                         <div className="hidden sm:flex items-center gap-1.5 border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 px-2 py-1 rounded shadow-sm">
                             <Star className="w-4 h-4 text-amber-500 fill-amber-500" />
-                            <span className="text-sm font-medium font-mono text-zinc-900 dark:text-zinc-100">1.2k</span>
+                            <span className="text-sm font-medium font-mono text-zinc-900 dark:text-zinc-100">1</span>
                         </div>
                         <button
                             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
@@ -110,25 +110,25 @@ export default function DocsPage() {
                                 <Step
                                     number="01"
                                     title="Browse & Choose"
-                                    description="Explore the Presets page to find an animation that fits your vibe. Use the new search feature to find specific styles like 'Glitch' or 'Typewriter'."
+                                    description="Explore the Presets page to find an animation that fits your vibe. Use the new search feature to find specific styles like 'Glitch' or 'System'."
                                 />
 
                                 <Step
                                     number="02"
-                                    title="Customize in Playground"
-                                    description="Click the 'Try' button on any preset to open the Playground. Tweak parameters like Duration, Stagger, and Offsets until it feels just right."
+                                    title="Install via Terminal"
+                                    description="The fastest way to get started. Copy the command from the 'Install' section of any preset (e.g. `npx shadcn@latest add ...`) and run it. This maps the component directly to your project using the shadcn CLI."
                                 />
 
                                 <Step
                                     number="03"
-                                    title="Export Code"
-                                    description="Once you're happy, scroll down to the 'Code Preview' section in the Playground. Copy the generated React component code."
+                                    title="Customize & Preview"
+                                    description="Want to tweak it first? Click 'Try' on any preset to open the Playground. Adjust parameters like Duration, Stagger, and Blur in real-time."
                                 />
 
                                 <Step
                                     number="04"
-                                    title="Integrate"
-                                    description="Paste the code into a new component file in your project (e.g., components/AnimatedTitle.tsx). Import and use it wherever you need animated text."
+                                    title="Manual Integration"
+                                    description="For full control, head to the Playground's 'Code Preview'. Copy the raw React code and paste it into your codebase (e.g., `components/TextAnim.tsx`). Just ensure `framer-motion` is installed in your project."
                                 />
 
                             </div>
@@ -156,26 +156,46 @@ export default function DocsPage() {
             </main>
 
             {/* Footer */}
-            <footer className="bg-zinc-50 dark:bg-zinc-900 border-t border-dashed border-zinc-300 dark:border-zinc-800 py-12">
-                <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-                    <div className="flex items-center gap-2">
-                        <Image
-                            src="/logo-text.png"
-                            alt="Clover"
-                            width={140}
-                            height={40}
-                            className="object-contain h-28 w-auto dark:invert"
-                        />
+            <footer className="bg-zinc-50 dark:bg-zinc-900 border-t border-dashed border-zinc-300 dark:border-zinc-800 pt-10 pb-8 overflow-hidden">
+                <div className="max-w-7xl mx-auto px-6">
+                    <div className="flex flex-col md:flex-row justify-between gap-8 mb-12">
+                        <div className="flex gap-12">
+                            <div>
+                                <h4 className="font-mono text-xs font-semibold uppercase text-zinc-400 mb-4 tracking-widest">Platform</h4>
+                                <ul className="space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
+                                    <li><Link href="/" className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Home</Link></li>
+                                    <li><Link href="/presets" className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Presets</Link></li>
+                                    <li><Link href="/playground" className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Playground</Link></li>
+                                    <li><Link href="/docs" className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Documentation</Link></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 className="font-mono text-xs font-semibold uppercase text-zinc-400 mb-4 tracking-widest">Resources</h4>
+                                <ul className="space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
+                                    <li><a href="https://github.com/clover-kit/Clover" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">GitHub</a></li>
+                                    <li><a href="https://github.com/clover-kit/Clover/releases" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Changelog</a></li>
+                                    <li><a href="https://github.com/clover-kit/Clover/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">License</a></li>
+                                    <li><a href="https://github.com/clover-kit/Clover/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Contributing</a></li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
 
-                    <div className="flex gap-8 text-sm font-medium text-zinc-500 dark:text-zinc-400">
-                        <a href="#" className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">GitHub</a>
-                        <a href="#" className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Twitter</a>
-                    </div>
+                    <div className="flex flex-col md:flex-row justify-between items-center w-full pt-8 border-t border-dashed border-zinc-300 dark:border-zinc-800 text-xs text-zinc-500 font-mono">
+                        <div className="flex items-center gap-1">
+                            <span>Developed by</span>
+                            <a href="https://github.com/AVBharath10" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Bharath</a>
+                            <span className="mx-1">.</span>
+                            <span>The source code is available on</span>
+                            <a href="https://github.com/clover-kit/Clover" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">GitHub</a>
+                        </div>
 
-                    <p className="text-sm text-zinc-400 dark:text-zinc-600">
-                        &copy; 2026 Clover. All rights reserved.
-                    </p>
+                        <div className="flex items-center gap-4 mt-4 md:mt-0">
+                            <a href="https://github.com/clover-kit/Clover" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">
+                                <Github className="w-4 h-4" />
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </footer>
         </div>
