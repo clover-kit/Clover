@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
-import { Star, Moon, Sun, ArrowRight, Zap, Terminal, AlignLeft, Sparkles, Copy, Monitor, Smartphone, RotateCcw, MoveVertical, Video, Search } from "lucide-react";
+import { Star, Moon, Sun, ArrowRight, Zap, Terminal, AlignLeft, Sparkles, Copy, Monitor, Smartphone, RotateCcw, MoveVertical, Video, Search, Github } from "lucide-react";
 import { PRESETS } from "@/lib/presets";
 
 export default function PresetsPage() {
@@ -104,7 +104,7 @@ export default function PresetsPage() {
                     <div className="flex items-center gap-4">
                         <div className="hidden sm:flex items-center gap-1.5 border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 px-2 py-1 rounded shadow-sm">
                             <Star className="w-4 h-4 text-amber-500 fill-amber-500" />
-                            <span className="text-sm font-medium font-mono text-zinc-900 dark:text-zinc-100">1.2k</span>
+                            <span className="text-sm font-medium font-mono text-zinc-900 dark:text-zinc-100">1</span>
                         </div>
                         <button
                             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
@@ -188,33 +188,65 @@ export default function PresetsPage() {
 
 
             {/* Footer */}
-            <footer className="bg-zinc-50 dark:bg-zinc-900 border-t border-dashed border-zinc-300 dark:border-zinc-800 py-12">
-                <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-                    <div className="flex items-center gap-2">
-                        <Image
-                            src="/logo-text.png"
-                            alt="Clover"
-                            width={140}
-                            height={40}
-                            className="object-contain h-28 w-auto dark:invert"
-                        />
+            <footer className="bg-zinc-50 dark:bg-zinc-950 border-t border-dashed border-zinc-300 dark:border-zinc-800 pt-10 pb-8 overflow-hidden">
+                <div className="max-w-7xl mx-auto px-6">
+                    <div className="flex flex-col md:flex-row justify-between gap-8 mb-12">
+                        <div className="flex gap-12">
+                            <div>
+                                <h4 className="font-mono text-xs font-semibold uppercase text-zinc-400 mb-4 tracking-widest">Platform</h4>
+                                <ul className="space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
+                                    <li><Link href="/" className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Home</Link></li>
+                                    <li><Link href="/presets" className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Presets</Link></li>
+                                    <li><Link href="/playground" className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Playground</Link></li>
+                                    <li><Link href="/docs" className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Documentation</Link></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 className="font-mono text-xs font-semibold uppercase text-zinc-400 mb-4 tracking-widest">Resources</h4>
+                                <ul className="space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
+                                    <li><a href="https://github.com/clover-kit/Clover" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">GitHub</a></li>
+                                    <li><a href="https://github.com/clover-kit/Clover/releases" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Changelog</a></li>
+                                    <li><a href="https://github.com/clover-kit/Clover/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">License</a></li>
+                                    <li><a href="https://github.com/clover-kit/Clover/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Contributing</a></li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
 
-                    <div className="flex gap-8 text-sm font-medium text-zinc-500 dark:text-zinc-400">
-                        <a href="#" className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">GitHub</a>
-                        <a href="#" className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Twitter</a>
-                    </div>
+                    <div className="flex flex-col md:flex-row justify-between items-center w-full pt-8 border-t border-dashed border-zinc-300 dark:border-zinc-800 text-xs text-zinc-500 font-mono">
+                        <div className="flex items-center gap-1">
+                            <span>Developed by</span>
+                            <a href="https://github.com/AVBharath10" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Bharath</a>
+                            <span className="mx-1">.</span>
+                            <span>The source code is available on</span>
+                            <a href="https://github.com/clover-kit/Clover" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">GitHub</a>
+                        </div>
 
-                    <p className="text-sm text-zinc-400 dark:text-zinc-600">
-                        &copy; 2026 Clover. All rights reserved.
-                    </p>
+                        <div className="flex items-center gap-4 mt-4 md:mt-0">
+                            <a href="https://github.com/clover-kit/Clover" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">
+                                <Github className="w-4 h-4" />
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </footer>
         </div>
     );
 }
 
+
+
 function PresetCard({ title, description, fontClass, icon, preview }: any) {
+    const [copied, setCopied] = useState(false);
+
+    const installCommand = `npx shadcn@latest add https://clover.dev/registry/${title.toLowerCase().replace(/\s+/g, "-")}.json`;
+
+    const handleCopy = () => {
+        navigator.clipboard.writeText(installCommand);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+    };
+
     return (
         <div className="group bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl overflow-hidden hover:shadow-xl hover:shadow-zinc-200/50 dark:hover:shadow-black/50 transition-all duration-300 hover:-translate-y-1">
             <div className="h-48 border-b border-zinc-100 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-950/50 flex items-center justify-center p-8 relative overflow-hidden">
@@ -239,10 +271,22 @@ function PresetCard({ title, description, fontClass, icon, preview }: any) {
                         <Monitor className="w-3.5 h-3.5" />
                         Try
                     </Link>
-                    <button className="flex-1 flex items-center justify-center gap-2 bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 hover:bg-zinc-50 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 py-2 rounded text-sm font-medium transition-colors">
-                        <Copy className="w-3.5 h-3.5" />
-                        Code
-                    </button>
+                </div>
+                <div className="mt-4 pt-4 border-t border-dashed border-zinc-200 dark:border-zinc-800">
+                    <p className="text-[10px] text-zinc-400 mb-1.5 font-mono uppercase tracking-wider">Install</p>
+                    <div className="group/code relative">
+                        <div
+                            className="absolute inset-y-0 right-0 flex items-center pr-1 opacity-0 group-hover/code:opacity-100 transition-opacity"
+                            onClick={handleCopy}
+                        >
+                            <div className="bg-zinc-200 dark:bg-zinc-700 p-1 rounded cursor-pointer hover:bg-zinc-300 dark:hover:bg-zinc-600" title="Copy command">
+                                {copied ? <span className="text-[10px] font-bold text-green-500 px-1">Copied!</span> : <Copy className="w-3 h-3 text-zinc-600 dark:text-zinc-300" />}
+                            </div>
+                        </div>
+                        <code className="text-[10px] text-zinc-600 dark:text-zinc-400 bg-zinc-100 dark:bg-zinc-800/50 px-2 py-2 rounded block truncate font-mono select-all hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors cursor-text">
+                            {installCommand}
+                        </code>
+                    </div>
                 </div>
             </div>
         </div>
