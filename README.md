@@ -1,6 +1,8 @@
 # Clover
 
 Clover is a collection of high-performance text animations for Next.js applications, built with Framer Motion and Tailwind CSS. It provides a registry of preset animations that can be easily integrated into your project using the shadcn CLI or by manually copying the code.
+<img width="1920" height="1536" alt="725shots_so" src="https://github.com/user-attachments/assets/f7da1f63-dc54-492f-8f2d-595937e78314" />
+
 
 ## Features
 
