@@ -475,7 +475,6 @@ export default function LiveTextPlayground() {
                                 <ul className="space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
                                     <li><Link href="/" className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Home</Link></li>
                                     <li><Link href="/presets" className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Presets</Link></li>
-                                    <li><Link href="/playground" className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Playground</Link></li>
                                     <li><Link href="/docs" className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Documentation</Link></li>
                                 </ul>
                             </div>
