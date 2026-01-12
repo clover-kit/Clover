@@ -17,7 +17,8 @@ import {
   Share2,
   Github,
   Download,
-  ArrowRight
+  ArrowRight,
+  Command
 } from "lucide-react";
 
 export default function LandingPage() {
@@ -167,7 +168,7 @@ export default function LandingPage() {
             <div className="p-8 border-dashed border-zinc-300 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-900/50 transition-colors">
               <Keyboard className="w-5 h-5 mb-6 text-zinc-900 dark:text-zinc-100" />
               <h3 className="text-sm font-mono font-semibold uppercase tracking-wider mb-2 text-zinc-900 dark:text-zinc-100">Keyboard First</h3>
-              <p className="text-zinc-500 dark:text-zinc-400 font-mono text-sm leading-relaxed">Designed for flow. Switch presets with <code className="bg-zinc-100 dark:bg-zinc-800 px-1 py-0.5 rounded text-xs border border-zinc-200 dark:border-zinc-700">Cmd+K</code>.</p>
+              <p className="text-zinc-500 dark:text-zinc-400 font-mono text-sm leading-relaxed">Designed for flow. Switch presets with <code className="bg-zinc-100 dark:bg-zinc-800 px-1 py-0.5 rounded text-xs border border-zinc-200 dark:border-zinc-700 inline-flex items-center gap-0.5"><Command className="w-3 h-3" /> + K</code>.</p>
             </div>
           </div>
         </div>

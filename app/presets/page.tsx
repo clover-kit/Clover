@@ -6,18 +6,25 @@ import Link from "next/link";
 import { GithubStars } from "@/components/github-stars";
 import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
-import { Star, Moon, Sun, ArrowRight, Zap, Terminal, AlignLeft, Sparkles, Copy, Monitor, Smartphone, RotateCcw, MoveVertical, Video, Search, Github } from "lucide-react";
+import { Star, Moon, Sun, ArrowRight, Zap, Terminal, AlignLeft, Sparkles, Copy, Monitor, Smartphone, RotateCcw, MoveVertical, Video, Search, Github, Command } from "lucide-react";
 import { PRESETS } from "@/lib/presets";
 
 export default function PresetsPage() {
     const { theme, setTheme } = useTheme();
     const [searchQuery, setSearchQuery] = useState("");
 
-    // Effect to handle Escape key
+    const searchInputRef = React.useRef<HTMLInputElement>(null);
+
+    // Effect to handle Escape key and Cmd+K
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
             if (e.key === "Escape") {
                 setSearchQuery("");
+                searchInputRef.current?.blur();
+            }
+            if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+                e.preventDefault();
+                searchInputRef.current?.focus();
             }
         };
         window.addEventListener("keydown", handleKeyDown);
@@ -137,6 +144,7 @@ export default function PresetsPage() {
                             </div>
                         </div>
                         <input
+                            ref={searchInputRef}
                             type="text"
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
@@ -145,7 +153,7 @@ export default function PresetsPage() {
                         />
                         <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                             <kbd className="hidden sm:inline-flex items-center gap-1 bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded px-2 py-0.5 text-[10px] font-mono font-medium text-zinc-500 dark:text-zinc-400 uppercase tracking-widest">
-                                ESC
+                                <Command className="w-3 h-3" /> + K
                             </kbd>
                         </div>
                     </div>

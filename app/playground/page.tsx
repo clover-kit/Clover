@@ -66,6 +66,39 @@ function PlaygroundContent() {
         }
     }, [searchParams]);
 
+    // Keyboard Shortcuts
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            // Cmd+K or Ctrl+K to cycle presets
+            if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+                e.preventDefault();
+                const presetKeys = Object.keys(PRESETS);
+                const currentIndex = presetKeys.findIndex(k => k.toLowerCase() === presetName.toLowerCase());
+                const nextIndex = (currentIndex + 1) % presetKeys.length;
+                const nextPresetName = presetKeys[nextIndex];
+                const p = PRESETS[nextPresetName];
+
+                if (p) {
+                    setPresetName(nextPresetName);
+                    setDuration(p.duration);
+                    setStagger(p.stagger);
+                    setYOffset(p.yOffset);
+                    setXOffset(p.xOffset || 0);
+                    setScale(p.scale ?? 1);
+                    setBlur(p.blur);
+
+                    // Optional: Update URL without full reload
+                    const url = new URL(window.location.href);
+                    url.searchParams.set("preset", nextPresetName);
+                    window.history.pushState({}, "", url.toString());
+                }
+            }
+        };
+
+        window.addEventListener("keydown", handleKeyDown);
+        return () => window.removeEventListener("keydown", handleKeyDown);
+    }, [presetName]);
+
     const handleCopyCode = () => {
         navigator.clipboard.writeText(codeSnippet);
         setCopied(true);
