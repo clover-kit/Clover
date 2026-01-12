@@ -42,5 +42,6 @@ next-env.d.ts
 
 /public
 
-
+project.md
 CODE_OF_CONDUCT.md
+CHANGELOG.MD
