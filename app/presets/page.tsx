@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { GithubStars } from "@/components/github-stars";
 import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import { Star, Moon, Sun, ArrowRight, Zap, Terminal, AlignLeft, Sparkles, Copy, Monitor, Smartphone, RotateCcw, MoveVertical, Video, Search, Github } from "lucide-react";
@@ -102,10 +103,7 @@ export default function PresetsPage() {
                     </div>
 
                     <div className="flex items-center gap-4">
-                        <div className="hidden sm:flex items-center gap-1.5 border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 px-2 py-1 rounded shadow-sm">
-                            <Star className="w-4 h-4 text-amber-500 fill-amber-500" />
-                            <span className="text-sm font-medium font-mono text-zinc-900 dark:text-zinc-100">1</span>
-                        </div>
+                        <GithubStars />
                         <button
                             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                             className="relative p-2 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-full transition-colors"
